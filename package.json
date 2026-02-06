@@ -1,0 +1,15 @@
+{
+  "name": "robotic-arm-function",
+  "version": "1.0.0",
+  "description": "Package sorting function for robotic arm",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "robotic-arm",
+    "sorting"
+  ],
+  "author": "",
+  "license": "MIT"
+}
