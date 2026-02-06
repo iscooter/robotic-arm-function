@@ -1,0 +1,71 @@
+# Robotic Arm Package Sorting Test Dataset
+# Format: width,height,length,mass,expected_result,test_category,description
+# Units: dimensions in cm, mass in kg
+
+# STANDARD Cases - Neither Bulky Nor Heavy
+10,10,10,5,STANDARD,standard,Small and light package
+50,50,50,10,STANDARD,standard,Medium package under all thresholds
+80,80,80,15,STANDARD,standard,Package below all thresholds
+149,10,10,19,STANDARD,standard,Just below all thresholds
+1,1,1,1,STANDARD,standard,Minimal dimensions and mass
+99,100,100,10,STANDARD,standard,Just below volume threshold
+
+# SPECIAL Cases - Bulky But Not Heavy
+100,100,100,10,SPECIAL,bulky_not_heavy,Exactly at volume threshold (1M cm³)
+100,100,100,15,SPECIAL,bulky_not_heavy,Bulky by volume not heavy
+150,10,10,5,SPECIAL,bulky_not_heavy,Bulky by width (150 cm)
+10,150,10,5,SPECIAL,bulky_not_heavy,Bulky by height (150 cm)
+10,10,150,5,SPECIAL,bulky_not_heavy,Bulky by length (150 cm)
+200,50,50,15,SPECIAL,bulky_not_heavy,Bulky by multiple dimensions
+1000,1000,1,10,SPECIAL,bulky_not_heavy,Extremely bulky by volume
+300,20,20,19,SPECIAL,bulky_not_heavy,One dimension >> 150 cm
+151,10,10,10,SPECIAL,bulky_not_heavy,Just above dimension threshold
+100,100,101,5,SPECIAL,bulky_not_heavy,Just above volume threshold
+
+# SPECIAL Cases - Heavy But Not Bulky
+10,10,10,20,SPECIAL,heavy_not_bulky,Exactly at mass threshold (20 kg)
+10,10,10,25,SPECIAL,heavy_not_bulky,Heavy but not bulky
+10,10,10,50,SPECIAL,heavy_not_bulky,Very heavy but small
+50,50,50,20,SPECIAL,heavy_not_bulky,Heavy at threshold not bulky
+149,10,10,20,SPECIAL,heavy_not_bulky,Heavy and just below dimension threshold
+99,100,100,20,SPECIAL,heavy_not_bulky,Heavy and just below volume threshold
+1,1,1,100,SPECIAL,heavy_not_bulky,Extremely heavy but tiny
+20,20,20,21,SPECIAL,heavy_not_bulky,Just above mass threshold small volume
+
+# REJECTED Cases - Both Bulky And Heavy
+100,100,100,20,REJECTED,bulky_and_heavy,At volume threshold and heavy
+150,10,10,20,REJECTED,bulky_and_heavy,At dimension threshold and heavy
+150,10,10,25,REJECTED,bulky_and_heavy,Bulky by dimension and very heavy
+200,200,200,100,REJECTED,bulky_and_heavy,Very bulky and very heavy
+150,150,50,25,REJECTED,bulky_and_heavy,Bulky by multiple dimensions and heavy
+1000,1000,1,20,REJECTED,bulky_and_heavy,Extremely bulky by volume and heavy
+151,10,10,20,REJECTED,bulky_and_heavy,Just above dimension threshold and heavy
+100,100,101,20,REJECTED,bulky_and_heavy,Just above volume threshold and heavy
+200,10,10,50,REJECTED,bulky_and_heavy,Bulky and extremely heavy
+
+# Edge Cases - Boundary Testing
+150,10,10,10,SPECIAL,edge_case,Exactly at dimension threshold
+100,100,100,19,SPECIAL,edge_case,Exactly at volume threshold not heavy
+10,10,10,19,STANDARD,edge_case,Just below mass threshold
+150,10,10,19,SPECIAL,edge_case,At dimension threshold just below mass threshold
+149,10,10,20,SPECIAL,edge_case,Just below dimension at mass threshold
+150,10,10,20,REJECTED,edge_case,At both dimension and mass thresholds
+100,100,100,20,REJECTED,edge_case,At both volume and mass thresholds
+
+# Edge Cases - Input Validation & Sanitization (should handle gracefully)
+0,0,0,0,STANDARD,edge_case,Zero dimensions and mass
+0.5,0.5,0.5,0.5,STANDARD,edge_case,Fractional values small
+149.9,10,10,19.9,STANDARD,edge_case,Fractional values below thresholds
+150.1,10,10,20.1,REJECTED,edge_case,Fractional values above thresholds
+1,1,1000000,10,SPECIAL,edge_case,Volume threshold via single dimension
+
+# Edge Cases - Large Numbers
+10000,10000,10000,1000,REJECTED,edge_case,Extremely large values
+999999,1,1,5,SPECIAL,edge_case,Extreme dimension not heavy
+1,1,1,10000,SPECIAL,edge_case,Extreme mass not bulky
+
+# Edge Cases - Precision Testing
+100,100,99.99,19.99,STANDARD,edge_case,Just below both thresholds with decimals
+100,100,100.01,20,REJECTED,edge_case,Just above volume threshold and heavy
+149.999,10,10,19.999,STANDARD,edge_case,Very close to thresholds but below
+150.001,10,10,20.001,REJECTED,edge_case,Very close to thresholds but above

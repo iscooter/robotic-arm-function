@@ -1,0 +1,158 @@
+# HTML Test Results Report
+
+## Overview
+
+The test suite now automatically generates a beautiful, interactive HTML report that provides comprehensive visualization of all test results.
+
+## Features
+
+### 📊 Visual Dashboard
+- **Summary Cards**: Quick overview of total tests, passed, failed, and success rate
+- **Color-coded Statistics**: Green for passed, red for failed, purple for overall metrics
+- **Real-time Calculations**: Automatically computed success rates and percentages
+
+### 📈 Category Breakdown
+- **Progress Bars**: Visual representation of test success per category
+- **Performance Badges**: Color-coded badges showing pass/fail ratios
+- **Category Filtering**: Organized by test type (standard, bulky, heavy, rejected, edge cases)
+
+### 🔍 Detailed Test View
+- **Interactive Filtering**: Toggle between All Tests, Passed Only, or Failed Only
+- **Complete Test Details**: Shows all input parameters (width, height, length, mass)
+- **Expected vs Actual**: Clear comparison of expected and actual results
+- **Error Messages**: Detailed error information for failed tests
+- **Hover Effects**: Interactive UI elements for better user experience
+
+### 🎨 Design Features
+- **Modern UI**: Clean, professional gradient design
+- **Responsive Layout**: Works perfectly on desktop, tablet, and mobile
+- **Color-coded Tests**: Green border for passed tests, red for failed
+- **Smooth Animations**: Hover effects and transitions for better UX
+- **Professional Typography**: Clear, readable fonts with proper hierarchy
+
+## File Information
+
+- **Filename**: `test-results.html`
+- **Location**: Root directory of the project
+- **File Size**: ~151KB
+- **Auto-generated**: Created automatically when running `npm test`
+- **Browser Compatible**: Works in all modern browsers (Chrome, Firefox, Safari, Edge)
+
+## How to Use
+
+1. **Generate Report**:
+   ```bash
+   npm test
+   ```
+
+2. **Open Report**:
+   - Double-click `test-results.html` in your file explorer
+   - Or use command line: `open test-results.html` (macOS) or `start test-results.html` (Windows)
+   - Or drag and drop the file into any browser
+
+3. **Filter Results**:
+   - Click "All Tests" to see everything
+   - Click "Passed Only" to see successful tests
+   - Click "Failed Only" to see tests that need attention
+
+4. **Review Details**:
+   - Scroll through the detailed test results
+   - Check input parameters and expected vs actual results
+   - Review error messages for failed tests
+
+## Report Sections
+
+### 1. Header
+- Project title and description
+- Generation timestamp
+- Visual gradient background
+
+### 2. Summary Statistics
+- Total Tests Run
+- Tests Passed (green)
+- Tests Failed (red)
+- Overall Success Rate (purple)
+
+### 3. Category Results
+- Standard cases
+- Bulky (not heavy)
+- Heavy (not bulky)
+- Bulky AND heavy (rejected)
+- Edge cases
+- Error handling
+
+### 4. Detailed Test Results
+- Sequential numbering
+- Test description
+- Pass/Fail badge
+- All input parameters
+- Expected vs actual results
+- Error messages (if any)
+
+### 5. Footer
+- Framework information
+- Report metadata
+
+## Technical Details
+
+### Technologies Used
+- Pure HTML5
+- Embedded CSS3 (no external dependencies)
+- Vanilla JavaScript (no libraries required)
+- Grid and Flexbox layouts
+- CSS animations and transitions
+
+### Styling
+- Modern gradient backgrounds
+- Card-based UI components
+- Responsive grid system
+- Professional color scheme
+- Hover states and animations
+
+### JavaScript Features
+- Filter functionality (All/Passed/Failed)
+- Dynamic content display
+- Interactive button states
+- No external dependencies
+
+## Benefits
+
+1. **Visual Analysis**: Easy to spot patterns and issues at a glance
+2. **Sharable**: Can be shared with team members or stakeholders
+3. **Archivable**: Keep historical test results for comparison
+4. **Professional**: Presentation-ready format for reports
+5. **Offline**: Works without internet connection
+6. **Fast**: Loads instantly in any browser
+7. **Accessible**: Clear typography and color contrast
+
+## Example Use Cases
+
+- **Code Reviews**: Share test results with colleagues
+- **Documentation**: Include in project documentation
+- **CI/CD**: Archive test results from automated builds
+- **Presentations**: Show test coverage in meetings
+- **Debugging**: Quickly identify failing test patterns
+- **Reporting**: Provide visual proof of quality for stakeholders
+
+## Future Enhancements (Possible)
+
+- Export to PDF
+- Test history comparison
+- Performance metrics over time
+- Custom filtering by category
+- Search functionality
+- Sort by different criteria
+- Export raw data to CSV/JSON
+
+## Notes
+
+- The report is regenerated on every test run
+- Previous reports are overwritten (consider versioning if needed)
+- All test data is self-contained in the HTML file
+- No server or database required
+- Can be committed to version control or excluded via .gitignore
+
+---
+
+**Generated by**: Robotic Arm Testing Framework v1.0  
+**Last Updated**: February 6, 2026
