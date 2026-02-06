@@ -1,5 +1,9 @@
 # robotic-arm-function
 
+See this on Github Pages: 
+  - README: https://iscooter.github.io/robotic-arm-function
+  - TEST RESULTS: https://iscooter.github.io/robotic-arm-function/test-results.html
+
 A production-grade package sorting system for robotic arm automation that categorizes packages into dispatch stacks based on physical dimensions and mass, with comprehensive validation, error handling, and test coverage.
 
 ## Project Purpose
